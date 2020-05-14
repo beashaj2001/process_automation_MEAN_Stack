@@ -1,0 +1,51 @@
+mat-card {
+    margin-left: 5%;
+    width: 90%;
+  }
+  
+  .full {
+    width: 43%;
+  }
+  
+  .left {
+    float: left;
+  }
+  .middle {
+    float: left;
+    margin-left: 10%;
+  }
+  .right {
+    margin-left: 10%;
+  }
+  
+  .sp {
+    margin-left: 2%;
+  }
+  
+  .sp1{
+    margin-left: 3.8%;
+  }
+  
+  .sp2 {
+    margin-left: 2%;
+  }
+  
+  .decorateButton {
+    margin-left: 43%;
+    margin-bottom: 3%;
+    width: 120px;
+  }
+  
+  .shadow {
+    box-shadow: 2px 2px 5px;
+  }
+
+  .shadow:hover {
+    box-shadow: 3px 3px 11px; 
+  }
+
+  .imageclass {
+    background-image: url('C:\Users\win\Desktop\last-try\first-app\src\assets\pa4.jpg');
+    width: 100%;
+    height: 100%;
+  }

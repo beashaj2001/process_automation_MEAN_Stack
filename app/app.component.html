@@ -1,0 +1,37 @@
+<div *ngIf="vis1">
+    <!DOCTYPE html >
+    <html >
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+      <div *ngIf="alert" class="alert alert-danger" role="alert">
+        <p style="text-align: center;">
+          User name or Password Wrong ..!! :(    Try Again :|
+        </p>
+      </div>
+    <form action="app.component.ts" #userForm="ngForm"  (ngSubmit)="onSubmit()"   novalidate  >
+      <hr />
+      <div class="container" >
+        <h2 >Login Form</h2>
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username"  #name="ngModel" name="username" required [(ngModel)]="userModel.name" id="u1" [class.is-invalid]="name.invalid" class="form-control"  >
+    
+    
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="Password" #password="ngModel"  required [(ngModel)]="userModel.password" id="p1" class="form-group " >
+    
+    
+        <button type="submit"   [disabled]="userForm.form.invalid"   >Login</button><br><br>
+        <button (click)="clientOpen()"  >Client</button>
+      </div>
+    </form>
+    
+    </body>
+    </html>
+</div> 
+<cli-ent *ngIf="clie"></cli-ent>
+<man-ager *ngIf="mana"></man-ager>
+<team-leader *ngIf="tea"></team-leader>
+<employee *ngIf="empl"></employee>
+    

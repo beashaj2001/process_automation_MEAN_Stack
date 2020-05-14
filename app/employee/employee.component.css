@@ -1,0 +1,7 @@
+.imageclass {
+    background-image: url('C:\Users\win\Desktop\last-try\first-app\src\assets\pa4.jpg');
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }

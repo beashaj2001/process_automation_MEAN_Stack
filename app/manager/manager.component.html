@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <body class="imageclass">
+
+<mat-accordion [multi]="true" style="margin-left: 2%;width: 45%">
+    <mat-expansion-panel class="ex1" [expanded]="true" style="opacity: 0.95;margin-left: 2%;width: 65%">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          On Going Projects
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <table mdbTable small="true" class="mat-elevation-z8" style="width: 100%">
+        <thead>
+          <tr style="text-align: center;">
+            <th *ngFor="let head of ds1" scope="col">{{head}} </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let elem of onGoingArray" style="width: 100%">
+            <td style="text-align: center;">{{ elem.name }}</td>
+            <td style="text-align: center;">{{ elem.team }}</td>
+            <td style="text-align: center;">{{ elem.deadline }}</td>
+            <td style="text-align: center;">
+              <button mat-button color="warn" style="text-align: center;" (click)="completeProject(elem)">Completed</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel class="ex1" [expanded]="true" style="opacity: 0.95;margin-left: 2%;width: 65%">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Future Projects
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <table  mdbTable small="true" class="mat-elevation-z8" style="width: 100%">
+        <thead>
+          <tr style="text-align: center;">
+            <th *ngFor="let head of ds2" scope="col">{{head}} </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let elem of futureArray">
+            <td style="text-align: center;">{{ elem.id }}</td>
+            <td style="text-align: center;">{{ elem.name }}</td>
+            <td style="text-align: center;">
+              <mat-form-field>
+                <mat-label>SELECT TEAM</mat-label>
+                <mat-select [(ngModel)]="elem.team" name="categorie" style="width: 50;">
+                  <mat-option *ngFor="let e of team" [value]="e.name">{{e.name}}</mat-option>
+                </mat-select>
+             </mat-form-field>
+            </td>
+            <button mat-button color="accent" style="margin-left: 30%;margin-top: 10%;" (click)="confirm(elem)">Confirm</button>
+          </tr>
+        </tbody>
+      </table>
+      <button mat-raised-button style="margin-left: 45%;" color="primary" (click)="saveProjects()">Save Changes</button>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel class="ex1" [expanded]="true" style="opacity: 0.95;margin-left: 2%;width: 65%">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Completed Projects
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <table  mdbTable small="true" class="mat-elevation-z8" style="width: 100%">
+        <thead>
+          <tr style="text-align: center;">
+            <th *ngFor="let head of ds3" scope="col">{{head}} </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let elem of completeArray">
+            <td style="text-align: center;">{{ elem.id }}</td>
+            <td style="text-align: center;">{{ elem.name }}</td>
+            <td style="text-align: center;">{{ elem.team }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-expansion-panel>
+  </mat-accordion>
+</body>
+</html>

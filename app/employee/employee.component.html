@@ -1,0 +1,44 @@
+<html>
+  <body class="imageclass">
+<div style="margin-top: 0%;margin-left: 10%;width: 50%"><br><br><br>
+    <h4 style="color: white;">Pending Projects</h4>
+    <mat-card>
+      <table mdbTable small="true" class="mat-elevation-z8" style="opacity: 0.95;">
+        <thead>
+          <tr style="text-align: center;">
+            <th *ngFor="let head of ds" scope="col">{{head}} </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr mdbTableCol *ngFor="let el of pendingTasks">
+            <td scope="row" style="text-align: center;">{{el.id}}</td>
+            <td style="text-align: center;">{{el.content}}</td>
+            <td style="text-align: center;">
+              <button mat-button color="accent" (click)="saveTask(el)">Completed</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </mat-card>
+</div>
+
+<div style="margin-top: 5%;margin-left: 10%;width: 50%">
+    <h4 style="color: white;">Completed Projects</h4>
+    <mat-card>
+    <table *ngIf="completedStatus" mdbTable small="true" class="mat-elevation-z8" style="opacity: 0.95;">
+        <thead>
+          <tr style="text-align: center;">
+            <th *ngFor="let head of ds1" scope="col">{{head}} </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr mdbTableCol *ngFor="let el of completedTasks">
+            <td scope="row" style="text-align: center;">{{el.id}}</td>
+            <td style="text-align: center;">{{el.content}}</td>
+          </tr>
+        </tbody>
+    </table>
+  </mat-card>
+</div>
+</body>
+</html>

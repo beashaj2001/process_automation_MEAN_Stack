@@ -1,0 +1,109 @@
+<html>
+  <body class="imageclass">
+<br>
+<div style="margin-left: 5%;margin-right: 5%;opacity: 0.95;">
+  <form (submit)="onSave()">
+    <mat-card class="shadow" id="one">
+      <mat-form-field>
+        <input matInput type="text" placeholder="Name*" name="name" [(ngModel)]="name">
+      </mat-form-field>
+      <mat-form-field style="margin-left: 2%;">
+        <input matInput type="text" placeholder="Phone*" name="phno" [(ngModel)]="phno">
+      </mat-form-field>
+      <mat-form-field style="margin-left: 2%;">
+        <input matInput type="email" placeholder="email*" name="email" [(ngModel)]="email">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="full">
+        <input matInput placeholder="Company name*" name="cname" [(ngModel)]="cname">
+      </mat-form-field><br>
+      <mat-form-field class="full">
+        <input matInput placeholder="Project name*" name="pname" [(ngModel)]="pname">
+      </mat-form-field><br>
+      <mat-form-field class="full">
+        <textarea matInput placeholder="Address Line" rows="3" name="address" [(ngModel)]="address"></textarea>
+      </mat-form-field><br>
+      <mat-form-field class="full">
+        <input matInput placeholder="City*" name="city" [(ngModel)]="city">
+      </mat-form-field><br>
+      <mat-form-field class="full">
+        <input matInput placeholder="State*" name="state" [(ngModel)]="state">
+      </mat-form-field><br>
+    </mat-card>
+    <mat-card style="margin-top: 2%;height: 270px;" class="shadow">
+      <h5>Services</h5>
+      <div class="left">
+        <mat-checkbox name="web" [(ngModel)]="web" [(indeterminate)]="indeterminate" (change)="func1()">WEB/MOBILE</mat-checkbox><br><br>
+        <mat-checkbox name="static" [(ngModel)]="static" (change)="func()">STACTIC WEBSITE</mat-checkbox><br>
+        <mat-checkbox name="dynamic" [(ngModel)]="dynamic" (change)="func()">DYNAMIC</mat-checkbox><br>
+        <mat-checkbox name="economic" [(ngModel)]="economic" (change)="func()">ECONOMIC</mat-checkbox><br>
+        <mat-checkbox name="appln" [(ngModel)]="appln" (change)="func()">WEB APPLICATION</mat-checkbox><br>
+        <mat-checkbox name="mob" [(ngModel)]="mob" (change)="func()">MOBILE APP</mat-checkbox>
+      </div>
+      <div class="middle">
+        <mat-checkbox name="digital" [(ngModel)]="digital" [(indeterminate)]="indeterminate1" (change)="check1()">DIGITAL MICTG</mat-checkbox><br><br>
+        <mat-checkbox name="seo" [(ngModel)]="seo" (change)="check()">SEO</mat-checkbox><br>
+        <mat-checkbox name="sem" [(ngModel)]="sem" (change)="check()">SEM (PPC)</mat-checkbox><br>
+        <mat-checkbox name="smo" [(ngModel)]="smo" (change)="check()">SMO</mat-checkbox><br>
+        <mat-checkbox name="smm" [(ngModel)]="smm" (change)="check()">SMM</mat-checkbox><br>
+      </div>
+      <div>
+        <mat-form-field class="full right">
+          <textarea matInput placeholder="Description in 200 chars" rows="5" name="description" [(ngModel)]="description"></textarea>
+        </mat-form-field>
+      </div>
+    </mat-card>
+    <mat-card style="margin-top: 2%;height: 200px;" class="shadow">
+      <h5>ENQUIRY DETAILS</h5>
+      <mat-form-field>
+        <mat-label>LEAD SOURCE</mat-label>
+        <mat-select name="selectoption1" [(ngModel)]="selectoption1">
+          <mat-option *ngFor= "let emp of select1" [value] = "emp.id">{{emp.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>HANDLED BY</mat-label>
+        <mat-select name="selectoption2" [(ngModel)]="selectoption2">
+          <mat-option *ngFor= "let emp of select2" [value] = "emp.id">{{emp.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card>
+    <mat-card style="margin-top: 2%;height: 120px;" class="shadow">
+      <h5>FOLLOW UP</h5>
+      <mat-form-field>
+        <mat-label>QUOTE</mat-label>
+        <mat-select name="selectoption3" [(ngModel)]="selectoption3">
+          <mat-option *ngFor= "let emp of select3" [value] = "emp.id">{{emp.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field style="margin-left: 2%;">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" name="date" [(ngModel)]="mydate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      
+      <mat-form-field style="margin-left: 2%;">
+        <mat-label>RESPONCIVE</mat-label>
+        <mat-select name="selectoption4" [(ngModel)]="selectoption4">
+          <mat-option *ngFor= "let emp of select4" [value] = "emp.id">{{emp.name}}</mat-option>
+        </mat-select>
+      </mat-form-field><br>
+    </mat-card>
+    <mat-card style="margin-top: 2%;margin-bottom: 2%;height: 90px;" class="shadow">
+      <div>
+        <mat-checkbox name="ncustomer" [(ngModel)]="ncustomer">Notify Customer</mat-checkbox>
+        <mat-checkbox name="nemail" [(ngModel)]="nemail" class="sp" [disabled]="!ncustomer" (click)="cc1()">EMAIL</mat-checkbox>
+        <mat-checkbox name="nsms" [(ngModel)]="nsms" class="sp" [disabled]="!ncustomer" (click)="cc2()">SMS</mat-checkbox><br>
+      </div>
+    </mat-card>
+    <button class="decorateButton" type="submit" mat-raised-button color="primary">SAVE</button>
+  </form>
+</div>
+<button igxButton="raised" (click)="snackbar.show()">Send message</button>
+<div>
+  <igx-snackbar #snackbar displayTime="1000">Message sent</igx-snackbar>
+</div>
+</body>
+</html>
